@@ -13,11 +13,11 @@ function Books(props) {
     let pageCount = Math.ceil(numberOfBooks / pageSize)
 
     useEffect(() => {
-        fetchBooks();
+        fetchBooks(page, pageSize);
         fetchNumberOfBooks();
-    }, [page, pageSize])
+    }, [page])
 
-    function fetchBooks() {
+    function fetchBooks(page, pageSize) {
         LibraryRepository.fetchBooks(page, pageSize)
             .then(data => updateBooks(data.data));
     }

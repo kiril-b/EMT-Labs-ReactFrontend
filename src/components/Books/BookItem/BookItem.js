@@ -14,16 +14,10 @@ function BookItem(props) {
                 <a title={"Edit"} className={"btn btn-warning"}
                    href={`/books/edit/${props.book.id}`}>Edit</a>
 
-                <a title={"MarkAsTaken"} className={"btn btn-primary"}
-                   onClick={() => props.onDecrement(props.book.id)}>Mark as taken</a>
+                <button title={"MarkAsTaken"} className={"btn btn-primary"}
+                   onClick={() => props.onDecrement(props.book.id)}
+                        disabled={props.book.availableCopies === 0}>Mark as taken</button>
             </td>
-
-            {/*    <Link className={"btn btn-info ml-2"}*/}
-            {/*          onClick={() => props.onEdit(props.item.id)}*/}
-            {/*          to={`/products/edit/${props.item.id}`}>*/}
-            {/*        Edit*/}
-            {/*    </Link>*/}
-            {/*</td>*/}
         </tr>
     );
 }

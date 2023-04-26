@@ -15,7 +15,6 @@ function BooksAdd(props) {
     });
 
     useEffect(() => {
-        console.log("here sir")
         LibraryRepository.fetchAuthors()
             .then(data => updateAuthors(data.data))
 
@@ -59,7 +58,7 @@ function BooksAdd(props) {
                         <label>Author</label>
                         <select name="authorId" className={"form-control"} onChange={handleChange}>
                             {authors.map(a => {
-                                return <option value={a.id}>{a.name} {a.surname}</option>
+                                return <option key={a.id} value={a.id}>{a.name} {a.surname}</option>
                             })}
                         </select>
                     </div>
@@ -67,7 +66,7 @@ function BooksAdd(props) {
                         <label>Category</label>
                         <select name="category" className={"form-control"} onChange={handleChange}>
                             {categories.map(c => {
-                                return <option value={c}>{c}</option>
+                                return <option key={c} value={c}>{c}</option>
                             })}
                         </select>
                     </div>
